@@ -1,4 +1,7 @@
 import itertools
+import os
+
+os.system('clear')
 
 def win(current_game):
 	
@@ -121,7 +124,7 @@ def game_board(game_map, player=0, layer=0, row=0, column=0, just_display=False)
 	try:
 		if game_map[layer][row][column] != 0:
 			print("This position is taken! Choose another!")
-			return layers, False
+			return layer, False
 		print("   0  1  2")
 		if not just_display:
 			game_map[layer][row][column] = player
@@ -159,6 +162,7 @@ def board_full(current_game):
 play = True
 
 while play:
+	os.system('clear')
 	game = [[[0, 0, 0],
 			 [0, 0, 0],
 			 [0, 0, 0],],
@@ -180,7 +184,7 @@ while play:
 			layer_choice = int(input("Layer: "))
 			column_choice = int(input("Column: "))
 			row_choice = int(input("Row: "))
-			print()
+			os.system('clear')
 			game, played = game_board(game, current_player, layer_choice, row_choice, column_choice)
 
 		if win(game):
